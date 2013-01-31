@@ -1,0 +1,20 @@
+//
+//  AWVersionAgent.h
+//  AWVersionAgent
+//
+//  Created by Heyward Fann on 1/31/13.
+//  Copyright (c) 2013 Appwill. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface AWVersionAgent : NSObject
+
++ (AWVersionAgent *)sharedAgent;
+
+@property (nonatomic) BOOL debug;
+
+- (void)checkNewVersion;
+- (void)upgradeAppWithNotification:(UILocalNotification *)notification;
+
+@end
