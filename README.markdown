@@ -1,7 +1,7 @@
 AWVersionAgent
 ----
 
-Check and notify user that new version is available from Local Notification.
+There is so many update checker using `UIAlertView` to notify user to upgrade your app, but the alert will stop user's action. `AWVersionAgent` will check new version in background and notify user that new version is available from Local Notification.
 
 Usage:
 ----
