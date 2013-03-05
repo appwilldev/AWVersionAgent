@@ -6,8 +6,7 @@ There is so many update checker using `UIAlertView` to notify user to upgrade yo
 Usage:
 ----
 
-1. Change `kAppStoreID` in `AWVersionAgent.m`.
-1. Add `[[AWVersionAgent sharedAgent] checkNewVersion];` in `application:didFinishLaunchingWithOptions:` to check new version in background.
+1. Add `[[AWVersionAgent sharedAgent] checkNewVersionForApp:@"your-app-id"];` in `application:didFinishLaunchingWithOptions:` to check new version in background.
 1. Add `[[AWVersionAgent sharedAgent] upgradeAppWithNotification:notification];` in `application:didReceiveLocalNotification:` to response local notification.
 1. You can enable debug mode by `[[AWVersionAgent sharedAgent] setDebug:YES];`.
 
