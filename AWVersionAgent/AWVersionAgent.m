@@ -10,8 +10,6 @@
 
 #import "JSONKit.h"
 
-#error change App ID
-#define kAppStoreID                 @"1234567"
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
 
@@ -24,6 +22,7 @@
 
 @interface AWVersionAgent ()
 
+@property (nonatomic, copy) NSString *appid;
 @property (nonatomic) BOOL newVersionAvailable;
 
 @end
@@ -62,10 +61,11 @@
     return self;
 }
 
-- (void)checkNewVersion
+- (void)checkNewVersionForApp:(NSString *)appid
 {
+    self.appid = appid;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, kAppStoreID];
+        NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, _appid];
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         if (data && [data length]>0) {
             id obj = [data objectFromJSONData];
@@ -135,7 +135,7 @@
     if ([notification.alertAction isEqualToString:kUpgradeAlertAction]) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
 
-        NSString *url = [NSString stringWithFormat:kAppStoreURLTemplate, kAppStoreID];
+        NSString *url = [NSString stringWithFormat:kAppStoreURLTemplate, _appid];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 
         self.newVersionAvailable = NO;

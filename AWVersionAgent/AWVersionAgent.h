@@ -14,7 +14,7 @@
 
 @property (nonatomic) BOOL debug;
 
-- (void)checkNewVersion;
+- (void)checkNewVersionForApp:(NSString *)appid;
 - (void)upgradeAppWithNotification:(UILocalNotification *)notification;
 
 @end
