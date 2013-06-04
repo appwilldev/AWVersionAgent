@@ -8,8 +8,6 @@
 
 #import "AWVersionAgent.h"
 
-#import "JSONKit.h"
-
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
 
@@ -68,7 +66,7 @@
         NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, _appid];
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         if (data && [data length]>0) {
-            id obj = [data objectFromJSONData];
+            id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             if (obj && [obj isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *dict = (NSDictionary *)obj;
                 NSArray *array = dict[@"results"];

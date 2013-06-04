@@ -18,7 +18,6 @@
 		571B2E9516E5D4F900E69036 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9416E5D4F900E69036 /* Default-568h@2x.png */; };
 		571B2E9816E5D4F900E69036 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2E9716E5D4F900E69036 /* ViewController.m */; };
 		571B2E9B16E5D4F900E69036 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9916E5D4F900E69036 /* ViewController.xib */; };
-		571B2EA916E5D53900E69036 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2EA716E5D53900E69036 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		571B2EAD16E5D83000E69036 /* AWVersionAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2EAC16E5D83000E69036 /* AWVersionAgent.m */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +38,6 @@
 		571B2E9616E5D4F900E69036 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		571B2E9716E5D4F900E69036 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		571B2E9A16E5D4F900E69036 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		571B2EA616E5D53900E69036 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		571B2EA716E5D53900E69036 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		571B2EAB16E5D83000E69036 /* AWVersionAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVersionAgent.h; sourceTree = "<group>"; };
 		571B2EAC16E5D83000E69036 /* AWVersionAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVersionAgent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,18 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				571B2EAA16E5D83000E69036 /* AWVersionAgent */,
-				571B2EA516E5D53900E69036 /* JSONKit */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		571B2EA516E5D53900E69036 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				571B2EA616E5D53900E69036 /* JSONKit.h */,
-				571B2EA716E5D53900E69036 /* JSONKit.m */,
-			);
-			path = JSONKit;
 			sourceTree = "<group>";
 		};
 		571B2EAA16E5D83000E69036 /* AWVersionAgent */ = {
@@ -211,7 +198,6 @@
 				571B2E8B16E5D4F900E69036 /* main.m in Sources */,
 				571B2E8F16E5D4F900E69036 /* AppDelegate.m in Sources */,
 				571B2E9816E5D4F900E69036 /* ViewController.m in Sources */,
-				571B2EA916E5D53900E69036 /* JSONKit.m in Sources */,
 				571B2EAD16E5D83000E69036 /* AWVersionAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +321,7 @@
 				571B2EA016E5D4F900E69036 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
