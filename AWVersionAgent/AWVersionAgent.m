@@ -11,7 +11,7 @@
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
 
-#define kUpgradeAlertMessage    @"New version is released, current version: %@, new version: %@. Get it from App Store right now."
+#define kUpgradeAlertMessage    @"A new version is available, current version: %@, new version: %@. Upgrade from the App Store now."
 #define kUpgradeAlertAction     @"kUpgradeAlertAction"
 #define kUpgradeAlertDelay      3
 
