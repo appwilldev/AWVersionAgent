@@ -8,12 +8,10 @@
 
 #import "AWVersionAgent.h"
 
-#import "JSONKit.h"
-
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
 
-#define kUpgradeAlertMessage    @"New version is released, current version: %@, new version: %@. Get it from App Store right now."
+#define kUpgradeAlertMessage    @"A new version is available, current version: %@, new version: %@. Upgrade from the App Store now."
 #define kUpgradeAlertAction     @"kUpgradeAlertAction"
 #define kUpgradeAlertDelay      3
 
@@ -68,7 +66,7 @@
         NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, _appid];
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         if (data && [data length]>0) {
-            id obj = [data objectFromJSONData];
+            id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             if (obj && [obj isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *dict = (NSDictionary *)obj;
                 NSArray *array = dict[@"results"];
