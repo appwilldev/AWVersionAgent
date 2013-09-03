@@ -76,7 +76,7 @@
                     [[NSUserDefaults standardUserDefaults] setObject:newVersion
                                                               forKey:@"kAppNewVersion"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
-                    NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+                    NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
                     if (newVersion && curVersion && ![newVersion isEqualToString:curVersion]) {
                         self.newVersionAvailable = YES;
                     }
