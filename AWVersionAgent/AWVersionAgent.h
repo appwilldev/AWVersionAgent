@@ -13,8 +13,14 @@
 + (AWVersionAgent *)sharedAgent;
 
 @property (nonatomic) BOOL debug;
+@property (nonatomic, assign) NSTimeInterval delay;
+@property (nonatomic, strong) NSString *actionText;
+@property (nonatomic, strong) NSString *alertMessage;
 
 - (void)checkNewVersionForApp:(NSString *)appid;
+
+- (BOOL)isNewVersion;
+
 - (void)upgradeAppWithNotification:(UILocalNotification *)notification;
 
 @end

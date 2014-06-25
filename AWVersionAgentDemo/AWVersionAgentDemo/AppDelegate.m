@@ -17,6 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[AWVersionAgent sharedAgent] setDebug:YES];
+    [AWVersionAgent sharedAgent].actionText = @"test";
     [[AWVersionAgent sharedAgent] checkNewVersionForApp:@"453718989"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -24,11 +25,16 @@
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    return YES;
+    NSLog(@"------------launchOptions:%@",launchOptions);
+    if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]) {
+        [self application:application didReceiveLocalNotification:launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]];
+    }
+    return NO;
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
+    NSLog(@"------------notification:%@",notification);
     [[AWVersionAgent sharedAgent] upgradeAppWithNotification:notification];
 }
 

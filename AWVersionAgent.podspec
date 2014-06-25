@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "AWVersionAgent"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Check and notify user that new version is available from Local Notification."
   s.homepage     = "https://github.com/appwilldev/AWVersionAgent"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Heyward Fann" => "fannheyward@gmail.com" }
-  s.source       = { :git => "https://github.com/appwilldev/AWVersionAgent.git", :tag => "0.0.3" }
+  s.source       = { :git => "https://github.com/appwilldev/AWVersionAgent.git", :tag => s.version.to_s }
   s.platform     = :ios
   s.source_files = 'AWVersionAgent/*.{h,m}'
   s.requires_arc = true

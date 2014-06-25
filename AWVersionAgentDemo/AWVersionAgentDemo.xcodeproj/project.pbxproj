@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DED3EF195ABB41004D6CFD /* AWVersionAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED3EE195ABB41004D6CFD /* AWVersionAgent.m */; };
 		571B2E7F16E5D4F900E69036 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B2E7E16E5D4F900E69036 /* UIKit.framework */; };
 		571B2E8116E5D4F900E69036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B2E8016E5D4F900E69036 /* Foundation.framework */; };
 		571B2E8316E5D4F900E69036 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B2E8216E5D4F900E69036 /* CoreGraphics.framework */; };
@@ -18,10 +19,11 @@
 		571B2E9516E5D4F900E69036 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9416E5D4F900E69036 /* Default-568h@2x.png */; };
 		571B2E9816E5D4F900E69036 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2E9716E5D4F900E69036 /* ViewController.m */; };
 		571B2E9B16E5D4F900E69036 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9916E5D4F900E69036 /* ViewController.xib */; };
-		571B2EAD16E5D83000E69036 /* AWVersionAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2EAC16E5D83000E69036 /* AWVersionAgent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04DED3ED195ABB41004D6CFD /* AWVersionAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVersionAgent.h; sourceTree = "<group>"; };
+		04DED3EE195ABB41004D6CFD /* AWVersionAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVersionAgent.m; sourceTree = "<group>"; };
 		571B2E7B16E5D4F900E69036 /* AWVersionAgentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWVersionAgentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571B2E7E16E5D4F900E69036 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		571B2E8016E5D4F900E69036 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -38,8 +40,6 @@
 		571B2E9616E5D4F900E69036 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		571B2E9716E5D4F900E69036 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		571B2E9A16E5D4F900E69036 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		571B2EAB16E5D83000E69036 /* AWVersionAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWVersionAgent.h; sourceTree = "<group>"; };
-		571B2EAC16E5D83000E69036 /* AWVersionAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWVersionAgent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DED3EC195ABB41004D6CFD /* AWVersionAgent */ = {
+			isa = PBXGroup;
+			children = (
+				04DED3ED195ABB41004D6CFD /* AWVersionAgent.h */,
+				04DED3EE195ABB41004D6CFD /* AWVersionAgent.m */,
+			);
+			name = AWVersionAgent;
+			path = ../../AWVersionAgent;
+			sourceTree = "<group>";
+		};
 		571B2E7216E5D4F900E69036 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +96,7 @@
 		571B2E8416E5D4F900E69036 /* AWVersionAgentDemo */ = {
 			isa = PBXGroup;
 			children = (
-				571B2EA116E5D53900E69036 /* Vendor */,
+				04DED3EC195ABB41004D6CFD /* AWVersionAgent */,
 				571B2E8D16E5D4F900E69036 /* AppDelegate.h */,
 				571B2E8E16E5D4F900E69036 /* AppDelegate.m */,
 				571B2E9616E5D4F900E69036 /* ViewController.h */,
@@ -109,24 +119,6 @@
 				571B2E9416E5D4F900E69036 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		571B2EA116E5D53900E69036 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				571B2EAA16E5D83000E69036 /* AWVersionAgent */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		571B2EAA16E5D83000E69036 /* AWVersionAgent */ = {
-			isa = PBXGroup;
-			children = (
-				571B2EAB16E5D83000E69036 /* AWVersionAgent.h */,
-				571B2EAC16E5D83000E69036 /* AWVersionAgent.m */,
-			);
-			name = AWVersionAgent;
-			path = ../../../AWVersionAgent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,10 +187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DED3EF195ABB41004D6CFD /* AWVersionAgent.m in Sources */,
 				571B2E8B16E5D4F900E69036 /* main.m in Sources */,
 				571B2E8F16E5D4F900E69036 /* AppDelegate.m in Sources */,
 				571B2E9816E5D4F900E69036 /* ViewController.m in Sources */,
-				571B2EAD16E5D83000E69036 /* AWVersionAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,10 +275,12 @@
 		571B2E9F16E5D4F900E69036 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWVersionAgentDemo/AWVersionAgentDemo-Prefix.pch";
 				INFOPLIST_FILE = "AWVersionAgentDemo/AWVersionAgentDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D98F8A0C-9BCF-4CCB-8D43-E1C482A98282";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -294,10 +288,12 @@
 		571B2EA016E5D4F900E69036 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWVersionAgentDemo/AWVersionAgentDemo-Prefix.pch";
 				INFOPLIST_FILE = "AWVersionAgentDemo/AWVersionAgentDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D98F8A0C-9BCF-4CCB-8D43-E1C482A98282";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

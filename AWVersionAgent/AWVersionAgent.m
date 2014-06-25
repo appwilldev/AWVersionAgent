@@ -9,18 +9,16 @@
 #import "AWVersionAgent.h"
 
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
-#define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
+#define kAppStoreURLTemplate        @"https://itunes.apple.com/app/id%@"
 
-#define kUpgradeAlertMessage    @"A new version is available, current version: %@, new version: %@. Upgrade from the App Store now."
-#define kUpgradeAlertAction     @"kUpgradeAlertAction"
-#define kUpgradeAlertDelay      3
+#define kUpgradeAlertMessage    NSLocalizedString(@"A new version is available, current version: %@, new version: %@. Upgrade from the App Store now.", nil)
+#define kUpgradeAlertAction     NSLocalizedString(@"upgrade", nil)
 
 #define kAWVersionAgentLastNotificationDateKey      @"lastNotificationDate"
 #define kAWVersionAgentLastCheckVersionDateKey      @"lastCheckVersionDate"
 
 @interface AWVersionAgent ()
-
-@property (nonatomic, copy) NSString *appid;
+@property (nonatomic) NSString *appID;
 @property (nonatomic) BOOL newVersionAvailable;
 
 @end
@@ -49,7 +47,12 @@
     if (self) {
         _newVersionAvailable = NO;
         _debug = NO;
-
+        _delay = 3;
+        
+        if ([self.actionText length] == 0) {
+            self.actionText = kUpgradeAlertAction;
+        }
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showUpgradeNotification)
                                                      name:UIApplicationDidEnterBackgroundNotification
@@ -59,11 +62,33 @@
     return self;
 }
 
+- (NSString *)appID
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"AWVersionAgentAppID"];
+}
+
+- (void)setAppID:(NSString *)appID
+{
+    [[NSUserDefaults standardUserDefaults] setObject:appID forKey:@"AWVersionAgentAppID"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)actionText
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"AWVersionAgentActionText"];
+}
+
+- (void)setActionText:(NSString *)actionText
+{
+    [[NSUserDefaults standardUserDefaults] setObject:actionText forKey:@"AWVersionAgentActionText"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)checkNewVersionForApp:(NSString *)appid
 {
-    self.appid = appid;
+    self.appID = appid;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, _appid];
+        NSString *url = [NSString stringWithFormat:kAppleLookupURLTemplate, self.appID];
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         if (data && [data length]>0) {
             id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
@@ -112,14 +137,14 @@
 {
     if ([self conditionHasBeenMet]) {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [[NSDate date] dateByAddingTimeInterval:kUpgradeAlertDelay];
+        notification.fireDate = [[NSDate date] dateByAddingTimeInterval:self.delay];
         notification.timeZone = [NSTimeZone defaultTimeZone];
         NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
         NSString *newVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
         NSString *msg = [NSString stringWithFormat:kUpgradeAlertMessage,
                          curVersion, newVersion];
         notification.alertBody = msg;
-        notification.alertAction = kUpgradeAlertAction;
+        notification.alertAction = self.actionText;
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 
         [[NSUserDefaults standardUserDefaults] setDouble:[[NSDate date] timeIntervalSince1970]
@@ -130,13 +155,24 @@
 
 - (void)upgradeAppWithNotification:(UILocalNotification *)notification
 {
-    if ([notification.alertAction isEqualToString:kUpgradeAlertAction]) {
+    if ([notification.alertAction isEqualToString:self.actionText]) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
 
-        NSString *url = [NSString stringWithFormat:kAppStoreURLTemplate, _appid];
+        NSString *url = [NSString stringWithFormat:kAppStoreURLTemplate, self.appID];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 
         self.newVersionAvailable = NO;
+    }
+}
+
+- (BOOL)isNewVersion
+{
+    NSString* appNewVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
+    NSString* curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    if (appNewVersion && curVersion && ![appNewVersion isEqualToString:curVersion]) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 
