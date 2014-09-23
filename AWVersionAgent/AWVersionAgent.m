@@ -139,7 +139,7 @@
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:self.delay];
         notification.timeZone = [NSTimeZone defaultTimeZone];
-        NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+        NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
         NSString *newVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
         NSString *msg = [NSString stringWithFormat:kUpgradeAlertMessage,
                          curVersion, newVersion];
@@ -168,7 +168,7 @@
 - (BOOL)isNewVersion
 {
     NSString* appNewVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
-    NSString* curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString* curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if (appNewVersion && curVersion && ![appNewVersion isEqualToString:curVersion]) {
         return YES;
     } else {
