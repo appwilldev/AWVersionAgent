@@ -11,7 +11,7 @@
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"https://itunes.apple.com/app/id%@"
 
-#define kUpgradeAlertMessage    NSLocalizedString(@"A new version is available, current version: %@, new version: %@. Upgrade from the App Store now.", nil)
+#define kUpgradeAlertMessage    NSLocalizedString(@"新版本发布了，当前版本: %@，最新版本: %@，现在就去 App Store 升级吧。", nil)
 #define kUpgradeAlertAction     NSLocalizedString(@"upgrade", nil)
 
 #define kAWVersionAgentLastNotificationDateKey      @"lastNotificationDate"
@@ -139,10 +139,15 @@
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:self.delay];
         notification.timeZone = [NSTimeZone defaultTimeZone];
-        NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-        NSString *newVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
-        NSString *msg = [NSString stringWithFormat:kUpgradeAlertMessage,
-                         curVersion, newVersion];
+        
+        NSString *msg = self.alertMessage;
+        if (msg == nil) {
+            NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+            NSString *newVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"kAppNewVersion"];
+            msg = [NSString stringWithFormat:kUpgradeAlertMessage,
+                             curVersion, newVersion];
+        }
+        
         notification.alertBody = msg;
         notification.alertAction = self.actionText;
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];

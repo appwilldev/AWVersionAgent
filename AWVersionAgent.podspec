@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AWVersionAgent"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "Check and notify user that new version is available from Local Notification."
   s.homepage     = "https://github.com/appwilldev/AWVersionAgent"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
