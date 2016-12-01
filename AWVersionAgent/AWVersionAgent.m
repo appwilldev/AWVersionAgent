@@ -7,6 +7,7 @@
 //
 
 #import "AWVersionAgent.h"
+#import <EDSemver/EDSemver.h>
 
 #define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
 #define kAppStoreURLTemplate        @"https://itunes.apple.com/app/id%@"
@@ -98,11 +99,13 @@
                 if (array && [array count]>0) {
                     NSDictionary *app = array[0];
                     NSString *newVersion = app[@"version"];
+                    EDSemver *newVer = [[EDSemver alloc] initWithString:newVersion];
                     [[NSUserDefaults standardUserDefaults] setObject:newVersion
                                                               forKey:@"kAppNewVersion"];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     NSString *curVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-                    if (newVersion && curVersion && ![newVersion isEqualToString:curVersion]) {
+                    EDSemver *curVer = [[EDSemver alloc] initWithString:curVersion];
+                    if (newVer && curVer && [newVer isGreaterThan:curVer]) {
                         self.newVersionAvailable = YES;
                     }
                 }

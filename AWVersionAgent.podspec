@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AWVersionAgent"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "Check and notify user that new version is available from Local Notification."
   s.homepage     = "https://github.com/appwilldev/AWVersionAgent"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AWVersionAgent/*.{h,m}'
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
+  s.dependency 'EDSemver', '~> 0.3.1'
 end

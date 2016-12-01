@@ -19,6 +19,7 @@
 		571B2E9516E5D4F900E69036 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9416E5D4F900E69036 /* Default-568h@2x.png */; };
 		571B2E9816E5D4F900E69036 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B2E9716E5D4F900E69036 /* ViewController.m */; };
 		571B2E9B16E5D4F900E69036 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 571B2E9916E5D4F900E69036 /* ViewController.xib */; };
+		C42722A0BA5C0B5270394CAB /* libPods-AWVersionAgentDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F36AA6A16047EA429C3EE8EE /* libPods-AWVersionAgentDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,9 @@
 		571B2E9616E5D4F900E69036 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		571B2E9716E5D4F900E69036 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		571B2E9A16E5D4F900E69036 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		B26C3B93C2B6941A600550D8 /* Pods-AWVersionAgentDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWVersionAgentDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AWVersionAgentDemo/Pods-AWVersionAgentDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B6C5D9A4334CBE0F8E75D63E /* Pods-AWVersionAgentDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWVersionAgentDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AWVersionAgentDemo/Pods-AWVersionAgentDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F36AA6A16047EA429C3EE8EE /* libPods-AWVersionAgentDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AWVersionAgentDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 				571B2E7F16E5D4F900E69036 /* UIKit.framework in Frameworks */,
 				571B2E8116E5D4F900E69036 /* Foundation.framework in Frameworks */,
 				571B2E8316E5D4F900E69036 /* CoreGraphics.framework in Frameworks */,
+				C42722A0BA5C0B5270394CAB /* libPods-AWVersionAgentDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,7 @@
 				571B2E8416E5D4F900E69036 /* AWVersionAgentDemo */,
 				571B2E7D16E5D4F900E69036 /* Frameworks */,
 				571B2E7C16E5D4F900E69036 /* Products */,
+				C1F655483A02FF461EA39890 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +95,7 @@
 				571B2E7E16E5D4F900E69036 /* UIKit.framework */,
 				571B2E8016E5D4F900E69036 /* Foundation.framework */,
 				571B2E8216E5D4F900E69036 /* CoreGraphics.framework */,
+				F36AA6A16047EA429C3EE8EE /* libPods-AWVersionAgentDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +128,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C1F655483A02FF461EA39890 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6C5D9A4334CBE0F8E75D63E /* Pods-AWVersionAgentDemo.debug.xcconfig */,
+				B26C3B93C2B6941A600550D8 /* Pods-AWVersionAgentDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571B2E9E16E5D4F900E69036 /* Build configuration list for PBXNativeTarget "AWVersionAgentDemo" */;
 			buildPhases = (
+				889AF3CDA1FCAB8AA4815AC9 /* [CP] Check Pods Manifest.lock */,
 				571B2E7716E5D4F900E69036 /* Sources */,
 				571B2E7816E5D4F900E69036 /* Frameworks */,
 				571B2E7916E5D4F900E69036 /* Resources */,
+				9F35475A7866AFA9EAE3F0D2 /* [CP] Embed Pods Frameworks */,
+				1F1332E81A0C5A8C99DF1D6B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +200,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F1332E81A0C5A8C99DF1D6B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWVersionAgentDemo/Pods-AWVersionAgentDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		889AF3CDA1FCAB8AA4815AC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F35475A7866AFA9EAE3F0D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AWVersionAgentDemo/Pods-AWVersionAgentDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		571B2E7716E5D4F900E69036 /* Sources */ = {
@@ -274,6 +341,7 @@
 		};
 		571B2E9F16E5D4F900E69036 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6C5D9A4334CBE0F8E75D63E /* Pods-AWVersionAgentDemo.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -287,6 +355,7 @@
 		};
 		571B2EA016E5D4F900E69036 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B26C3B93C2B6941A600550D8 /* Pods-AWVersionAgentDemo.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
